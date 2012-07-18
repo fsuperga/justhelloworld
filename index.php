@@ -8,7 +8,3 @@
 </p>
 </body>
 </html>
-
-
-
-echo date("l");
