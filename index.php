@@ -82,26 +82,35 @@ if ($user) {
     <?php if ($user): ?>
       <h3>You are logged in as: <?php echo $user_profile['name']; ?></h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture"/>
-      <table>
+      <table border="1">
           <tr><th>My Friends</th><th>Common Friends</th></tr>
 
-    <?php
-      $friends     =   $facebook->api('/me/friends');
-      //print_r($friends);
+        <?php
+          $friends     =   $facebook->api('/me/friends');
+          //print_r($friends);
 
-      foreach ($friends['data'] as $key=>$friendList) 
-      {
-          $param = '/me/mutualfriends/'.$friendList['id'];
-          $mutual_friends     =   $facebook->api($param);
-
-          echo "<tr><td>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></td><td></td></tr>";
-
-          foreach ($mutual_friends['data'] as $key2=>$mutualFriendList)
+          foreach ($friends['data'] as $key=>$friendList)
           {
-              echo "<tr><td></td><td>".$mutualFriendList['name']."<img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' /></td></tr>";
+              $param = '/me/mutualfriends/'.$friendList['id'];
+              $mutual_friends     =   $facebook->api($param);
+
+              echo "<tr><td>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></td>";
+
+              foreach ($mutual_friends['data'] as $key2=>$mutualFriendList)
+              {
+                  if ($key2 ==1)
+                  {
+                      echo "</td><td>"."<img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' />".$mutualFriendList['name']."</td></tr>";
+                  }
+                  else
+                  {
+                      echo "<tr><td></td><td><img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' />".$mutualFriendList['name']."</td></tr>";
+
+                  }
+
+              }
           }
-      }
-    ?>
+        ?>
       </table>
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
