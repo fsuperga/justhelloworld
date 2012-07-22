@@ -87,27 +87,18 @@ $naitik = $facebook->api('/naitik');
 
     <?php if ($user): ?>
       <h3>You are logged in as: <?php echo $user; ?></h3>
-      <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
+      <img src="https://graph.facebook.com/<?php echo $user; ?>/picture"/>
     <?php
       $friends     =   $facebook->api('/me/friends');
 
-      print_r($friends);
+      //print_r($friends);
 
       print_r("Number of friends: ". count($friends['data']));
 
-      foreach ($friends['data'] as $key=>$friendList) {
-      echo "<br/>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$amigos['id']."/picture' width='50' height='50' title='".$friendList['name']."' />";
-    }
+      foreach ($friends['data'] as $key=>$friendList) 
+      {
+          echo "<br/>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' />";
+      }
     ?>
-
-      <h3>Your User Object (/me)</h3>
-      <pre><?php print_r($user_profile); ?></pre>
-    <?php else: ?>
-      <strong><em>You are not Connected.</em></strong>
-    <?php endif ?>
-
-    <h3>Public profile of Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture">
-    <?php echo $naitik['name']; ?>
   </body>
 </html>
