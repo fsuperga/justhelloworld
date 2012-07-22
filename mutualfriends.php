@@ -84,21 +84,12 @@ if ($user) {
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture"/>
     <?php
       $friends     =   $facebook->api('/me/friends');
+
       //print_r($friends);
 
       foreach ($friends['data'] as $key=>$friendList) 
       {
-          $param = '/me/mutualfriends/'.$friendList['id'];
-          $mutual_friends     =   $facebook->api($param);
-
-          echo "<li>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' />";
-
-          foreach ($mutual_friends['data'] as $key2=>$mutualFriendList)
-          {
-              echo "<li>".$mutualFriendList['name']."<img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' />";
-              echo "</li>";
-          }
-          echo "</li>";
+          echo "<li>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></li>";
       }
     ?>
 
