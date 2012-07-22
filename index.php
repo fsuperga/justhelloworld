@@ -91,17 +91,16 @@ $naitik = $facebook->api('/naitik');
     <?php
       $friends     =   $facebook->api('/me/friends');
     ?>
-    <p>You have <?php count($friends);?> friends!!</p>
+    <p>You have <?php sizeof($friends);?> friends!!</p>
 
 
     <?php
       //print_r($friends);
-
-      foreach($friends as $f)
-      {
-          print_r($f);
-          echo "<li>".$f['name']."</li>";
-      }
+        for ($i = 0; $i < sizeof($friends); $i++)
+        {
+            $friend = $friendsData[$i];
+            echo "<li>".$friend['name']."</li>";
+        }         
     ?>
 
       <h3>Your User Object (/me)</h3>
