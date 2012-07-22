@@ -90,10 +90,16 @@ $naitik = $facebook->api('/naitik');
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
     <?php
       $friends     =   $facebook->api('/me/friends');
+    ?>
+    <p>You have <?php count($friends);?> friends!!</p>
+
+
+    <?php
       //print_r($friends);
 
       foreach($friends as $f)
       {
+          print_r($f);
           echo "<li>".$f['name']."</li>";
       }
     ?>
