@@ -90,17 +90,14 @@ $naitik = $facebook->api('/naitik');
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
     <?php
       $friends     =   $facebook->api('/me/friends');
-    ?>
-    <p>You have <?php sizeof($friends);?> friends!!</p>
 
+      print_r($friends);
 
-    <?php
-      //print_r($friends);
-        for ($i = 0; $i < sizeof($friends); $i++)
-        {
-            $friend = $friendsData[$i];
-            echo "<li>".$friend['name']."</li>";
-        }         
+      print_r("Number of friends: ". count($friends['data']));
+
+      foreach ($friends['data'] as $key=>$friendList) {
+      echo "<br/>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$amigos['id']."/picture' width='50' height='50' title='".$friendList['name']."' />";
+    }
     ?>
 
       <h3>Your User Object (/me)</h3>
