@@ -100,5 +100,15 @@ $naitik = $facebook->api('/naitik');
           echo "<li>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></li>";
       }
     ?>
+
+      <h3>Your User Object (/me)</h3>
+      <pre><?php print_r($user_profile); ?></pre>
+    <?php else: ?>
+      <strong><em>You are not Connected.</em></strong>
+    <?php endif ?>
+
+    <h3>Public profile of Naitik</h3>
+    <img src="https://graph.facebook.com/naitik/picture"/>
+    <?php echo $naitik['name']; ?>
   </body>
 </html>
