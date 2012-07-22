@@ -86,7 +86,7 @@ $naitik = $facebook->api('/naitik');
     <pre><?php print_r($_SESSION); ?></pre>
 
     <?php if ($user): ?>
-      <h3>You are logged in as: <?php echo $user; ?></h3>
+      <h3>You are logged in as: <?php echo $user['name']; ?></h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture"/>
     <?php
       $friends     =   $facebook->api('/me/friends');
@@ -97,7 +97,7 @@ $naitik = $facebook->api('/naitik');
 
       foreach ($friends['data'] as $key=>$friendList) 
       {
-          echo "<br/>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' />";
+          echo "<li>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></li>";
       }
     ?>
   </body>
