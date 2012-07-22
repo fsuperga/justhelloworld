@@ -49,9 +49,6 @@ if ($user) {
   $loginUrl = $facebook->getLoginUrl();
 }
 
-// This call will always work since we are fetching public data.
-$naitik = $facebook->api('/naitik');
-
 ?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -82,11 +79,8 @@ $naitik = $facebook->api('/naitik');
       </div>
     <?php endif ?>
 
-    <h3>PHP Session</h3>
-    <pre><?php print_r($_SESSION); ?></pre>
-
     <?php if ($user): ?>
-      <h3>You are logged in as: <?php echo $user['name']; ?></h3>
+      <h3>You are logged in as: <?php echo $user_profile['name']; ?></h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture"/>
     <?php
       $friends     =   $facebook->api('/me/friends');
@@ -97,18 +91,16 @@ $naitik = $facebook->api('/naitik');
 
       foreach ($friends['data'] as $key=>$friendList) 
       {
-          echo "<li>".$key." ".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></li>";
+          echo "<li>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></li>";
       }
     ?>
 
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
+
     <?php else: ?>
       <strong><em>You are not Connected.</em></strong>
     <?php endif ?>
 
-    <h3>Public profile of Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture"/>
-    <?php echo $naitik['name']; ?>
   </body>
 </html>
