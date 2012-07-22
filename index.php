@@ -15,7 +15,7 @@
  * under the License.
  */
 
-require './src/facebook.php';
+require 'src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -86,11 +86,11 @@ $naitik = $facebook->api('/naitik');
     <pre><?php print_r($_SESSION); ?></pre>
 
     <?php if ($user): ?>
-      <h3>You are looged in as: $user.</h3>
+      <h3>You are logged in as: <?php echo $user; ?></h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
     <?php
       $friends     =   $facebook->api('/me/friends');
-      print_r($friends);
+      //print_r($friends);
 
       foreach($friends as $f)
       {
