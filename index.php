@@ -94,13 +94,13 @@ if ($user) {
               $param = '/me/mutualfriends/'.$friendList['id'];
               $mutual_friends     =   $facebook->api($param);
 
-              echo "<tr><td>".$friendList['name']."<img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' /></td>";
+              echo "<tr><td colspan = '2'><img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' />".$friendList['name']."</td>";
 
               foreach ($mutual_friends['data'] as $key2=>$mutualFriendList)
               {
                   if ($key2 ==1)
                   {
-                      echo "</td><td>"."<img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' />".$mutualFriendList['name']."</td></tr>";
+                      echo "</td><td><img src='https://graph.facebook.com/".$mutualFriendList['id']."/picture' width='50' height='50' title='".$mutualFriendList['name']."' />".$mutualFriendList['name']."</td></tr>";
                   }
                   else
                   {
