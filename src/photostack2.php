@@ -1,4 +1,6 @@
 <?php
+require 'src/facebook.php';
+
 //$location 	= 'albums';
 $userid         = $_GET['userid'];
 $param          = '/me/mutualfriends/'.$userid ;
