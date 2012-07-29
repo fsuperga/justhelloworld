@@ -296,7 +296,7 @@ if ($user) {
 				*/
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
-					var userid 	= $elem.getElementsByTagName('img').getAttribute('alt');
+					var userid 	= $elem.children('img').getAttribute('alt');
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
 					$ps_container.find('img').remove();
