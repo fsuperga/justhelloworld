@@ -227,6 +227,8 @@
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
 					$ps_container.find('img').remove();
+                                        window.open('./src/photostack.php?userid='+userid);
+                                        /*
 					$.get('photostack.php', {album_name:album_name} , function(data) {
 						var items_count	= data.length;
 						for(var i = 0; i < items_count; ++i){
@@ -254,6 +256,7 @@
 							}).attr('src',item_source);
 						}
 					},'json');
+                        */
 				});
 				
 				/**
