@@ -11,6 +11,6 @@ foreach ($mutual_friends['data'] as $key=>$mutualFriendList)
 //$files 		= glob($location . '/' . $album_name . '/*.{jpg,gif,png}', GLOB_BRACE);
 //$encoded 	= json_encode($files);
 $encoded 	= json_encode($images);
-print_r($encoded);
+
 echo $encoded;
 unset($encoded);
