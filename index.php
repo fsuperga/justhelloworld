@@ -294,7 +294,8 @@ if ($user) {
 					$elem.append($loading);
                                         
 					$ps_container.find('img').remove();
-                                        window.open('./src/photostack.php?userid='+userid);
+                                        window.open('./src/photostack2.php?userid='+userid);
+                                        /*
 					$.get('src/photostack.php', {userid:userid} , function(data) {
 						var items_count	= data.length;
 						for(var i = 0; i < items_count; ++i){
@@ -322,6 +323,7 @@ if ($user) {
 							}).attr('src',item_source);
 						}
 					},'json');
+                            */
                                         
 				});
 

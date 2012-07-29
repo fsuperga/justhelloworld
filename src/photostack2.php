@@ -14,3 +14,4 @@ $encoded 	= json_encode($images);
 
 echo $encoded;
 unset($encoded);
+?>
