@@ -76,7 +76,7 @@ if ($user) {
           }
 		  h1.title{
 			text-indent:-9000px;
-			background:transparent url(title.png) no-repeat top left;
+			/*background:transparent url(title.png) no-repeat top left;*/
 			width:640px;
 			height:52px;
 			position:absolute;
