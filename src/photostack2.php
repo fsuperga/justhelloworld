@@ -1,5 +1,8 @@
 <?php
+
 require 'src/facebook.php';
+
+header('P3P: CP="CAO PSA OUR"');
 
 //$location 	= 'albums';
 $userid         = $_GET['userid'];
