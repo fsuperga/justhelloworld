@@ -2,7 +2,13 @@
 
 require 'src/facebook.php';
 
-header('P3P: CP="CAO PSA OUR"');
+if ($facebook->getSession()) {
+?><a href=”<?php echo $facebook->getLogoutUrl(); ?>”>Logout</a><?php
+$user = $facebook->api('/me');
+}
+else {
+?><a href=”<?php echo $facebook->getLoginUrl(); ?>”>Login</a><?php
+}
 
 //$location 	= 'albums';
 $userid         = $_GET['userid'];

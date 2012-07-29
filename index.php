@@ -17,6 +17,9 @@
 
 require 'src/facebook.php';
 
+
+header('P3P: CP="CAO PSA OUR"');
+
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
   'appId'  => '265860710193836',
