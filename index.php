@@ -53,7 +53,7 @@ if ($user) {
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-    <div id='thetitle'><title>*** Mutual Friends ***</title></div>
+    <title>*** Mutual Friends ***</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="WHOSOHW...." />
         <meta name="keywords" content="photo stack, gallery, jquery, css3, beautiful, overlay, sliding, album"/>
@@ -86,7 +86,7 @@ if ($user) {
       </style>
   </head>
   <body>
-    <h1>*** My Friends ***</h1>
+    <h1 id="thetitle">*** My Friends ***</h1>
 
     <?php if ($user): ?>
       <a href="<?php echo $logoutUrl; ?>">Logout</a>
@@ -98,14 +98,6 @@ if ($user) {
     <?php endif ?>
 
     <?php if ($user): ?>
-    <div>
-			<h1 class="title">Beautiful Photo Stack Gallery with jQuery and CSS3</h1>
-            <span class="reference">
-                <a href="http://tympanus.net/codrops/2010/06/27/beautiful-photo-stack-gallery-with-jquery-and-css3/">© Codrops</a>
-				<a href="http://www.flickr.com/photos/geishaboy500/">Photos by geishaboy500</a>
-            </span>
-		</div>
-
 		<div id="ps_slider" class="ps_slider">
 			<a class="prev disabled"></a>
 			<a class="next disabled"></a>
@@ -297,8 +289,7 @@ if ($user) {
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
 					var $userid 	= $elem.text($("img").attr("alt"));/*.children('img').getAttribute('alt');*/
-                                        var $thetitle = $('#thetitle');
-                                        $thetitle.text($userid);
+                                        $("#thetitle").text("ciao! " + $userid);
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
                                         /*
