@@ -57,7 +57,7 @@ if ($user) {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="WHOSOHW...." />
         <meta name="keywords" content="photo stack, gallery, jquery, css3, beautiful, overlay, sliding, album"/>
-        <link rel="stylesheet" href="./src/css/style.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="src/css/style.css" type="text/css" media="screen"/>
         <style>
           span.reference{
             position:fixed;
