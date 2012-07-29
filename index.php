@@ -297,8 +297,8 @@ if ($user) {
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
 					var $userid 	= $elem.text($("img").attr("alt"));/*.children('img').getAttribute('alt');*/
-                                        var $thetitle = $('#thetile');
-                                        $thetitle.text("ciao");
+                                        var $thetitle = $('#thetitle');
+                                        $thetitle.text($userid);
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
                                         /*
