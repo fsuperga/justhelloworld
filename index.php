@@ -292,7 +292,7 @@ if ($user) {
                                         $("#thetitle").text("ciao! " + userid);
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
-                                        /*
+                                        
 					$ps_container.find('img').remove();
 					$.get('src/photostack.php', {userid:userid} , function(data) {
 						var items_count	= data.length;
@@ -321,7 +321,7 @@ if ($user) {
 							}).attr('src',item_source);
 						}
 					},'json');
-                                        */
+                                        
 				});
 
 				/**

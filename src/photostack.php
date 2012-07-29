@@ -1,7 +1,7 @@
 <?php
 //$location 	= 'albums';
 $userid         = $_GET['userid'];
-$param          = '/me/mutualfriends/'.$friendList['id'];
+$param          = '/me/mutualfriends/'.$userid ;
 $mutual_friends = $facebook->api($param);
 $images         = array();
 foreach ($mutual_friends['data'] as $key=>$mutualFriendList)
