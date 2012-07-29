@@ -300,7 +300,7 @@ if ($user) {
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
 					$ps_container.find('img').remove();
-					$.get('photostack.php', {album_name:album_name} , function(data) {
+					$.get('src/photostack.php', {album_name:album_name} , function(data) {
 						var items_count	= data.length;
 						for(var i = 0; i < items_count; ++i){
 							var item_source = data[i];
