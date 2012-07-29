@@ -53,7 +53,7 @@ if ($user) {
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-    <title>*** Mutual Friends ***</title>
+    <div id='thetitle'><title>*** Mutual Friends ***</title></div>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="WHOSOHW...." />
         <meta name="keywords" content="photo stack, gallery, jquery, css3, beautiful, overlay, sliding, album"/>
@@ -296,9 +296,12 @@ if ($user) {
 				*/
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
-					var userid 	= $elem.text($("img").attr("alt"));/*.children('img').getAttribute('alt');*/
+					var $userid 	= $elem.text($("img").attr("alt"));/*.children('img').getAttribute('alt');*/
+                                        var $thetitle = $('#thetile');
+                                        $thetitle.text("ciao");
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
+                                        /*
 					$ps_container.find('img').remove();
 					$.get('src/photostack.php', {userid:userid} , function(data) {
 						var items_count	= data.length;
@@ -327,6 +330,7 @@ if ($user) {
 							}).attr('src',item_source);
 						}
 					},'json');
+                                        */
 				});
 
 				/**
