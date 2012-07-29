@@ -288,8 +288,8 @@ if ($user) {
 				*/
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
-					var $userid 	= $elem.text($("img")).alt;/*.children('img').getAttribute('alt');*/
-                                        $("#thetitle").text("ciao! " + $userid);
+					var userid 	= $elem.find('img').attr('alt');
+                                        $("#thetitle").text("ciao! " + userid);
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
                                         /*
