@@ -57,7 +57,7 @@ if ($user) {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="WHOSOHW...." />
         <meta name="keywords" content="photo stack, gallery, jquery, css3, beautiful, overlay, sliding, album"/>
-        <link rel="stylesheet" href="src/css/style.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="./src/css/style.css" type="text/css" media="screen"/>
         <style>
           span.reference{
             position:fixed;
@@ -119,7 +119,7 @@ if ($user) {
                                   $param = '/me/mutualfriends/'.$friendList['id'];
                                   $mutual_friends     =   $facebook->api($param);
 
-                                  echo "<div class='ps_album' style='opacity:0;'><img src='https://graph.facebook.com/".$friendList['id']."/picture' alt='".$friendList['name']."' title='".$friendList['name']."'/><div class='ps_desc'><h2>The Night</h2><span>Top Cat! The most effectual Top Cat! Who s intellectual close friends get to call him T.C., providing it s with dignity.Top Cat! The indisputable leader!</span></div></div>";
+                                  echo "<div class='ps_album' style='opacity:0;'><img src='https://graph.facebook.com/".$friendList['id']."/picture' alt='".$friendList['id']."' title='".$friendList['name']."'/><div class='ps_desc'><h2>The Night</h2><span>Top Cat! The most effectual Top Cat! Who s intellectual close friends get to call him T.C., providing it s with dignity.Top Cat! The indisputable leader!</span></div></div>";
                                   //echo "<tr><td colspan = '2' bgcolor = '#CCFFFF'><img src='https://graph.facebook.com/".$friendList['id']."/picture' width='50' height='50' title='".$friendList['name']."' />".$friendList['name']."</td></tr>";
 
                                   //foreach ($mutual_friends['data'] as $key2=>$mutualFriendList)
@@ -296,11 +296,11 @@ if ($user) {
 				*/
 				$ps_albums.children('div').bind('click',function(){
 					var $elem = $(this);
-					var album_name 	= 'album' + parseInt($elem.index() + 1);
+					var userid 	= $elem.getElementsByTagName('img').getAttribute('alt');
 					var $loading 	= $('<div />',{className:'loading'});
 					$elem.append($loading);
 					$ps_container.find('img').remove();
-					$.get('src/photostack.php', {album_name:album_name} , function(data) {
+					$.get('src/photostack.php', {userid:userid} , function(data) {
 						var items_count	= data.length;
 						for(var i = 0; i < items_count; ++i){
 							var item_source = data[i];
